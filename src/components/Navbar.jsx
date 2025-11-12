@@ -4,10 +4,9 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -15,9 +14,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,7 +26,8 @@ const Navbar = () => {
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
-      <div className="container flex items-center justify-between">
+    
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a
           href="#hero"
           className="text-xl font-bold text-primary flex items-center"
@@ -39,7 +37,7 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop Navigation */}
+        
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <a
@@ -51,13 +49,16 @@ const Navbar = () => {
             </a>
           ))}
         </div>
+
+        
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        {/* Mobile Navigation */}
+
+       
         <div
           className={cn(
             "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",

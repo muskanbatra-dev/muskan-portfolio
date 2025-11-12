@@ -4,7 +4,6 @@ import { cn } from "../lib/utils";
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(false);
 
- 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
     if (stored === "dark") {
@@ -40,7 +39,7 @@ const ThemeToggle = () => {
       onClick={toggleTheme}
       aria-label="Toggle theme"
       className={cn(
-        "fixed top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300 hover:cursor-pointer",
+        "fixed top-2 right-5 z-50 p-2 rounded-full transition-colors duration-300 hover:cursor-pointer",
         "max-sm:hidden"
       )}
     >
