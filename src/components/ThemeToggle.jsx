@@ -4,7 +4,7 @@ import { cn } from "../lib/utils";
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(false);
 
-  // initialize theme once on mount
+ 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
     if (stored === "dark") {
