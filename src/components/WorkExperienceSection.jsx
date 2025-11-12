@@ -1,3 +1,4 @@
+import React from "react";
 import PharmEasyLogo from "../logo/Pharmeasy.png";
 import BlackBuckLogo from "../logo/Blackbuck.png";
 import SprouterLogo from "../logo/Sprouter.jpeg";
@@ -34,6 +35,7 @@ const experiences = [
 export const WorkExperienceSection = () => {
   return (
     <>
+      {/* Desktop / md+ */}
       <section id="experience" className="hidden md:block py-12 px-4 relative">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center justify-between mb-12">
@@ -58,14 +60,15 @@ export const WorkExperienceSection = () => {
           <ul className="space-y-8">
             {experiences.map((exp, idx) => (
               <li
-                key={exp.company + "-" + idx}
+                key={`${exp.company}-${idx}`}
                 className="grid grid-cols-1 md:grid-cols-2 items-center gap-4"
               >
+                {/* left: logo + text */}
                 <a
-                  href={exp.link}
+                  href={exp.link ?? "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 mb-4"
+                  className="flex items-center gap-4 mb-4 group"
                 >
                   <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center border border-[color:var(--color-border)]">
                     <img
@@ -80,16 +83,24 @@ export const WorkExperienceSection = () => {
 
                   <div>
                     <div className="flex items-baseline gap-3">
-                      <h3 className="text-lg md:text-xl font-semibold text-[var(--color-foreground)]">
+                      <h3 className="text-lg md:text-xl font-semibold text-[var(--color-foreground)] group-hover:underline">
                         {exp.company}
                       </h3>
                     </div>
+
                     <p className="text-sm md:text-base text-muted-foreground">
                       {exp.role}
                     </p>
+
+                    {exp.subtitle && (
+                      <p className="text-sm text-[var(--color-foreground)] mt-2">
+                        {exp.subtitle}
+                      </p>
+                    )}
                   </div>
                 </a>
 
+                {/* right: date */}
                 <div className="text-right">
                   <span className="text-sm md:text-base text-muted-foreground">
                     {exp.date}
@@ -101,6 +112,7 @@ export const WorkExperienceSection = () => {
         </div>
       </section>
 
+      {/* Mobile / <md */}
       <section id="experience" className="py-24 px-4 relative md:hidden">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-glow text-3xl md:text-4xl font-bold mb-12 text-center ">
