@@ -1,15 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-border: hsl(var(--border));
+ --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-
   --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--fprimary-oreground));
-
+  --color-primary-foreground: hsl(var(--primary-foreground));
   --color-secondary: hsl(var(--secondary));
-
   --color-card: hsl(var(--card));
 
   --animate-float: float 6s ease-in-out infinite;
@@ -66,7 +63,9 @@
     }
   }
 
-  @layer base {
+ 
+}
+ @layer base {
     :root {
       --background: 210 40% 98%;
       --foreground: 222 47% 11%;
@@ -106,8 +105,6 @@
    }
 
   }
-}
-
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
